@@ -22,6 +22,8 @@ function syncReadFile(filename) {
 
     // split array
     const splitChars = arr[0].split("");
+    let startOfPacket;
+    let startOfMessage;
 
     // loop through array looking foward to next 4 chars
     for (let i = 0; i <= splitChars.length; i++) {
@@ -30,12 +32,24 @@ function syncReadFile(filename) {
         
         // check against regex, if all unique chars, get current index + 4
          if (regexUniqueChars.test(possibleMarker.join(""))) {
-            return console.log(i+4);
+            startOfPacket = i+4;
+            break;
          }
     }
-    
 
-    return arr;
+        // loop through array looking foward to next 4 chars
+        for (let j = 0; j <= splitChars.length; j++) {
+            let possibleMarker = splitChars.slice(j, j+14);
+            let regexUniqueChars = /^(?:([A-Za-z])(?!.*\1))*$/g
+            
+            // check against regex, if all unique chars, get current index + 4
+             if (regexUniqueChars.test(possibleMarker.join(""))) {
+                startOfMessage = j+14;
+                break;
+             }
+        }
+
+    return console.log(startOfPacket, startOfMessage);
 }
 
 server.listen(port, hostname, () => {
