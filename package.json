@@ -1,0 +1,25 @@
+{
+  "name": "advent-of-code-2022",
+  "version": "1.0.0",
+  "description": "Advent of Code 2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint",
+    "start": "npm run test && node run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kodeiak/AdventOfCode2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kodeiak/AdventOfCode2022/issues"
+  },
+  "homepage": "https://github.com/Kodeiak/AdventOfCode2022#readme",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "nodemon": "^2.0.20",
+    "promise-path": "^1.4.3"
+  }
+}
